@@ -72,18 +72,22 @@ var viewModel = new UserViewModel() { Name = "Ivan" };
 NotifyBase.SubscribeOnChanges(
     nameof(UserViewModel.Name),
     viewModel,
-    (oldValue, newValue) => 
+    (value) => 
     {
-        Console.WriteLine($"Name changed from {oldValue} to {newValue}");
+        Console.WriteLine($"Name changed to {value}");
     }
 );
 
 viewModel.Name = "John";
-// Console output: Name changed from Ivan to John
+// Console output: Name changed to John
 
 NotifyBase.UnsubscribeOnChanges(
     nameof(UserViewModel.Name),
-    viewModel
+    viewModel,
+    (value) => 
+    {
+        Console.WriteLine($"Name changed to {value}");
+    }
 );
 ```
 
@@ -91,7 +95,7 @@ NotifyBase.UnsubscribeOnChanges(
 
 ## Compatibility
 
-- ✅ .NET 6.0+
+- ✅ .NET 3.1+
 - ✅ WPF applications
 - ✅ Console applications
 - ✅ Other C# applications

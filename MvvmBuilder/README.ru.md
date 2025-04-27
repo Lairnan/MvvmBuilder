@@ -72,18 +72,22 @@ var viewModel = new UserViewModel() { Name = "Иван" };
 NotifyBase.SubscribeOnChanges(
     nameof(UserViewModel.Name),
     viewModel,
-    (oldValue, newValue) => 
+    (value) => 
     {
-        Console.WriteLine($"Имя изменилось с {oldValue} на {newValue}");
+        Console.WriteLine($"Имя изменилось на {value}");
     }
 );
 
 viewModel.Name = "Джон";
-// Вывод: Имя изменилось с Иван на Джон
+// Вывод: Имя изменилось на Джон
 
 NotifyBase.UnsubscribeOnChanges(
     nameof(UserViewModel.Name),
-    viewModel
+    viewModel,
+    (value) => 
+    {
+        Console.WriteLine($"Имя изменилось на {value}");
+    }
 );
 ```
 
