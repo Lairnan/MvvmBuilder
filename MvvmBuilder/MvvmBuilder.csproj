@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Nullable>enable</Nullable>
+        <LangVersion>8</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>1.0.0.0</Version>
+        <Title>MvvmBuilder</Title>
+        <Authors>Lairnan</Authors>
+        <Description>
+            The MVVMBuilder library is a comprehensive solution for building Modern,
+            Scalable, and Testable applications using the Model-View-ViewModel (MVVM)
+            architectural pattern. It provides a simple and clean way to implement the MVVM
+            pattern, separating the concerns of the UI from the business logic, while also
+            addressing common issues such as view access and proper command handling.
+        </Description>
+        <Copyright>Lairnan</Copyright>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="PresentationCore">
+        <HintPath>..\3rdParty\PresentationCore.dll</HintPath>
+      </Reference>
+      <Reference Include="PresentationFramework">
+        <HintPath>..\3rdParty\PresentationFramework.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+    
+</Project>

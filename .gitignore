@@ -1,0 +1,40 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# NuGet packages
+*.nupkg
+*.snupkg
+.nuget/
+
+# Visual Studio files
+.vs/
+.vscode/
+.idea/
+
+# Rider project files
+*.sln.iml
+
+# Test results
+TestResults/
+*.coverage
+*.coveragejson
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+Thumbs.db
+
+# Others
+*.orig
+_ReSharper*/
