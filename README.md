@@ -16,3 +16,48 @@
 
 ```bash
 dotnet add package MvvmBuilder
+```
+
+## Quick Start
+
+1. ViewModel with NotifyBase and RelayCommand
+code C#
+
+```csharp
+using System.Windows.Input;
+using MvvmBuilder.Commands;
+using MvvmBuilder.Notifies;
+
+public class LoginViewModel : NotifyBase
+{
+    private ICommand? _loginCommand;
+
+    public string Username
+    {
+        get => GetProperty<string>();
+        set => SetProperty(value);
+    }
+
+    public string StatusMessage
+    {
+        get => GetProperty<string>();
+        set => SetProperty(value, startValue: "Ready");
+    }
+
+    public ICommand LoginCommand => _loginCommand ??= new RelayCommand(
+        execute: () => StatusMessage = $"Welcome, {Username}!",
+        canExecute: () => !string.IsNullOrWhiteSpace(Username)
+    );
+}
+```
+
+2. Property Change Callbacks
+code C#
+
+```csharp
+public string SelectedLanguage
+{
+    get => GetProperty<string>();
+    set => SetProperty(value, onChanged: lang => ApplyCulture(lang), startValue: "en-US");
+}
+```
